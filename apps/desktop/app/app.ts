@@ -246,7 +246,7 @@ globalThis.$desktopMainAppFunctions = {
 // WARNING: This name cannot be changed as it affects Electron data storage.
 // Changing it will cause the system to generate new storage, preventing users from accessing their existing data.
 const APP_NAME = 'OneKey Wallet';
-const APP_TITLE_NAME = 'OneKey';
+const APP_TITLE_NAME = 'CC Wallet';
 app.name = APP_NAME;
 let mainWindow: BrowserWindow | null;
 let isAppReady = false;

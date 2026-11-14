@@ -132,7 +132,7 @@ class ProviderApiNeoN3 extends ProviderApiBase {
   @providerApiMethod()
   async getProvider() {
     return Promise.resolve({
-      name: 'OneKey',
+      name: 'CC Wallet',
       website: 'https://onekey.so/',
       version: process.env.VERSION,
       compatibility: [],

@@ -134,4 +134,58 @@ copyFile(
 const webEmbedScript = path.join(__dirname, 'web-embed.js');
 execSync(`node "${webEmbedScript}"`, { stdio: 'inherit' });
 
+// Patch injected files with brand logo & alt text if needed
+function patchBrandInInjectedFiles() {
+  const ejsPath = path.join(__dirname, '..', '..', 'packages', 'shared', 'src', 'web', 'index.html.ejs');
+  if (!fs.existsSync(ejsPath)) return;
+  const ejsContent = fs.readFileSync(ejsPath, 'utf8');
+  const base64Match = ejsContent.match(/class="onekey-index-html-preload-image"[^>]*src="data:image\/png;base64,([^"]+)"/);
+  if (!base64Match) return;
+  const ccBase64 = base64Match[1];
+  const oldBase64Prefix = 'iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAA3lBMVEU';
+
+  const targets = [
+    './node_modules/@onekeyfe/cross-inpage-provider-injected/dist/injected/injectedDesktop.js',
+    './node_modules/@onekeyfe/cross-inpage-provider-injected/dist/injected/injectedDesktopCode.js',
+    './node_modules/@onekeyfe/cross-inpage-provider-injected/dist/injected/injectedDesktopPreload.js',
+    './node_modules/@onekeyfe/cross-inpage-provider-injected/dist/injected/injectedExtension.js',
+    './node_modules/@onekeyfe/cross-inpage-provider-injected/dist/injected/injectedNative.js',
+    './node_modules/@onekeyfe/inpage-providers-hub/dist/cjs/floatingButton/images.js',
+    './node_modules/@onekeyfe/inpage-providers-hub/dist/floatingButton/images.js',
+    './apps/ext/src/entry/injected.js',
+    './apps/ext/src/entry/injected.text-js',
+    './packages/kit-bg/src/desktopApis/injectedDesktopCode.text-js',
+    './packages/kit/src/components/WebView/injectedNative.js.txt',
+    './apps/desktop/public/static/preload.js',
+  ];
+
+  targets.forEach((relPath) => {
+    const fullPath = path.join(__dirname, '..', '..', relPath);
+    if (fs.existsSync(fullPath)) {
+      let content = fs.readFileSync(fullPath, 'utf8');
+      let modified = false;
+      if (content.includes(oldBase64Prefix)) {
+        const idx = content.indexOf(oldBase64Prefix);
+        const endIdx = content.indexOf('"', idx);
+        const oldFullBase64 = content.slice(idx, endIdx);
+        content = content.split(oldFullBase64).join(ccBase64);
+        modified = true;
+      }
+      if (content.includes('alt:"OneKey Logo"')) {
+        content = content.replace(/alt:"OneKey Logo"/g, 'alt:"CC Wallet Logo"');
+        modified = true;
+      }
+      if (content.includes('alt: "OneKey Logo"')) {
+        content = content.replace(/alt: "OneKey Logo"/g, 'alt: "CC Wallet Logo"');
+        modified = true;
+      }
+      if (modified) {
+        fs.writeFileSync(fullPath, content);
+        console.log(`[copy-injected] Brand logo and alt patched in ${relPath}`);
+      }
+    }
+  });
+}
+patchBrandInInjectedFiles();
+
 console.log('All files copied successfully.');

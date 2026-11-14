@@ -20,38 +20,23 @@
 
 import { escape as escapeHtml } from 'lodash';
 
-// OneKey logomark SVG (circular version with brand green)
+// CC Wallet logomark SVG (circular version with brand green)
 const ONEKEY_LOGOMARK_SVG = `
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g clip-path="url(#clip0_23161_477)">
-    <path
-      d="M48 24C48 40.5685 40.5685 48 24 48C7.43146 48 0 40.5685 0 24C0 7.43146 7.43146 0 24 0C40.5685 0 48 7.43146 48 24Z"
-      fill="#44D62C"
-      style="fill:#44D62C;fill:color(display-p3 0.2667 0.8392 0.1725);fill-opacity:1;"
-    />
-    <path
-      d="M26.1685 10.1768L19.4918 10.1768L18.3204 13.7186H22.0288V21.1793H26.1685V10.1768Z"
-      fill="black"
-      style="fill:black;fill-opacity:1;"
-    />
-    <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      d="M31.6146 30.2086C31.6146 34.414 28.2055 37.8231 24.0001 37.8231C19.7948 37.8231 16.3857 34.414 16.3857 30.2086C16.3857 26.0033 19.7948 22.5942 24.0001 22.5942C28.2055 22.5942 31.6146 26.0033 31.6146 30.2086ZM28.1577 30.2086C28.1577 32.5048 26.2963 34.3662 24.0001 34.3662C21.704 34.3662 19.8426 32.5048 19.8426 30.2086C19.8426 27.9124 21.704 26.051 24.0001 26.051C26.2963 26.051 28.1577 27.9124 28.1577 30.2086Z"
-      fill="black"
-      style="fill:black;fill-opacity:1;"
-    />
-  </g>
+<svg width="48" height="48" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <clipPath id="clip0_23161_477">
-      <rect
-        width="48"
-        height="48"
-        fill="white"
-        style="fill:white;fill-opacity:1;"
-      />
-    </clipPath>
+    <linearGradient id="bgGrad_oauth" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
   </defs>
+  <path d="M128 64C128 108.183 108.183 128 64 128C19.8172 128 0 108.183 0 64C0 19.8172 19.8172 0 64 0C108.183 0 128 19.8172 128 64Z" fill="url(#bgGrad_oauth)"/>
+  <rect x="36" y="27" width="56" height="18" rx="4" fill="#FFFFFF" fill-opacity="0.92"/>
+  <rect x="22" y="37" width="84" height="63" rx="13" fill="#0F172A"/>
+  <path d="M22 52 H106" stroke="#1E293B" stroke-width="2.2"/>
+  <path d="M83 55 H106 C108.8 55, 111 57.2, 111 60 V76 C111 78.8, 108.8 81, 106 81 H83 C80.2 81, 78 78.8, 78 76 V60 C78 57.2, 80.2 55, 83 55 Z" fill="#10B981"/>
+  <circle cx="94.5" cy="68" r="3.8" fill="#FFFFFF"/>
+  <path d="M54 57.5 C46.5 57.5, 40.5 62.2, 40.5 69 C 40.5 75.8, 46.5 80.5, 54 80.5 C 58.5 80.5, 61.8 78.2, 63.8 75.5" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M64.5 57.5 C57 57.5, 51 62.2, 51 69 C 51 75.8, 57 80.5, 64.5 80.5 C 69 80.5, 72.3 78.2, 74.3 75.5" stroke="#34D399" stroke-width="5" stroke-linecap="round" fill="none"/>
 </svg>
 `;
 

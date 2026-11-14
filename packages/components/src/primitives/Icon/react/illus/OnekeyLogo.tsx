@@ -1,28 +1,41 @@
-import Svg, { G, Path, Defs, ClipPath } from 'react-native-svg';
+import Svg, { Circle, Path, Rect } from 'react-native-svg';
 import type { SvgProps } from 'react-native-svg';
+
 const SvgOnekeyLogo = (props: SvgProps) => (
   <Svg fill="none" viewBox="0 0 28 28" accessibilityRole="image" {...props}>
-    <G clipPath="url(#clip0_34420_34332)">
-      <Path
-        fill="#44D62C"
-        d="M27.91 13.955c0 9.634-4.321 13.955-13.955 13.955S0 23.589 0 13.955 4.321 0 13.955 0 27.91 4.321 27.91 13.955"
-      />
-      <Path
-        fill="#000"
-        d="M15.216 5.917h-3.882l-.681 2.06h2.156v4.338h2.407z"
-      />
-      <Path
-        fill="#000"
-        fillRule="evenodd"
-        d="M18.383 17.565a4.427 4.427 0 1 1-8.855 0 4.427 4.427 0 0 1 8.855 0m-2.01 0a2.417 2.417 0 1 1-4.835 0 2.417 2.417 0 0 1 4.834 0"
-        clipRule="evenodd"
-      />
-    </G>
-    <Defs>
-      <ClipPath id="clip0_34420_34332">
-        <Path fill="#fff" d="M0 0h28v28H0z" />
-      </ClipPath>
-    </Defs>
+    {/* Squircle Base */}
+    <Path
+      fill="#10B981"
+      d="M27.91 13.955c0 9.634-4.321 13.955-13.955 13.955S0 23.589 0 13.955 4.321 0 13.955 0 27.91 4.321 27.91 13.955"
+    />
+    {/* Top Security Card */}
+    <Rect x="7.9" y="5.9" width="12.2" height="3.9" rx="1" fill="#FFFFFF" fillOpacity={0.92} />
+    {/* Wallet Body */}
+    <Rect x="4.8" y="8.1" width="18.4" height="13.8" rx="2.8" fill="#0F172A" />
+    {/* Wallet fold line */}
+    <Path d="M4.8 11.4h18.4" stroke="#1E293B" strokeWidth="0.5" />
+    {/* Wallet Clasp */}
+    <Path
+      d="M17.1 12h5.1c0.6 0 1 0.4 1 1v3.5c0 0.6-0.4 1-1 1h-5.1c-0.6 0-1-0.4-1-1V13c0-0.6 0.4-1 1-1z"
+      fill="#10B981"
+    />
+    <Circle cx="20.7" cy="14.8" r="0.8" fill="#FFFFFF" />
+    {/* Interlocking CC */}
+    <Path
+      d="M11.8 12.6c-1.6 0-2.9 1-2.9 2.5 0 1.5 1.3 2.5 2.9 2.5 1 0 1.7-0.5 2.1-1.1"
+      stroke="#FFFFFF"
+      strokeWidth="1.1"
+      strokeLinecap="round"
+      fill="none"
+    />
+    <Path
+      d="M14.1 12.6c-1.6 0-2.9 1-2.9 2.5 0 1.5 1.3 2.5 2.9 2.5 1 0 1.7-0.5 2.1-1.1"
+      stroke="#34D399"
+      strokeWidth="1.1"
+      strokeLinecap="round"
+      fill="none"
+    />
   </Svg>
 );
+
 export default SvgOnekeyLogo;

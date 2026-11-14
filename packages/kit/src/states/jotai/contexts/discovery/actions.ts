@@ -259,7 +259,7 @@ export const homeTab: IWebTab = {
   id: 'home',
   // current url in webview
   url: 'about:blank',
-  title: 'OneKey',
+  title: 'CC Wallet',
   canGoBack: false,
   loading: false,
   favicon: '',

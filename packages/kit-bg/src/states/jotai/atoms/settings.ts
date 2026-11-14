@@ -85,9 +85,9 @@ export type ISettingsPersistAtom = {
 
 export const settingsAtomInitialValue: ISettingsPersistAtom = {
   theme: 'system',
-  lastLocale: 'system',
+  lastLocale: 'vi',
   selectedBrowserTab: ETranslations.global_browser,
-  locale: 'system',
+  locale: 'vi',
   version: process.env.VERSION ?? '1.0.0',
   buildNumber: process.env.BUILD_NUMBER ?? '2022010100',
   instanceId: generateUUID(),

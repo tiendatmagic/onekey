@@ -621,7 +621,7 @@ fi
 
   async getAppName(): Promise<string> {
     return (
-      globalThis.$desktopMainAppFunctions?.getAppName?.() || 'OneKey Wallet'
+      globalThis.$desktopMainAppFunctions?.getAppName?.() || 'CC Wallet'
     );
   }
 

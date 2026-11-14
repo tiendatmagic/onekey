@@ -31,7 +31,7 @@ export function createRecoveryWindow(): BrowserWindow {
 
   const browserWindow = new BrowserWindow({
     show: true,
-    title: 'OneKey',
+    title: 'CC Wallet',
     titleBarStyle: 'hidden',
     titleBarOverlay:
       isWin || isLinux

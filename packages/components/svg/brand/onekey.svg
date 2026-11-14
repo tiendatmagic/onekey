@@ -1,16 +1,16 @@
-<svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <path
-    d="M23 12C23 19.5939 19.5939 23 12 23C4.40608 23 1 19.5939 1 12C1 4.40608 4.40608 1 12 1C19.5939 1 23 4.40608 23 12Z"
-    fill="#44D62C"
-  />
-  <path
-    d="M12.994 5.66455L9.93387 5.66455L9.39701 7.28792H11.0967V10.7074H12.994V5.66455Z"
-    fill="black"
-  />
-  <path
-    fill-rule="evenodd"
-    clip-rule="evenodd"
-    d="M15.4902 14.8458C15.4902 16.7733 13.9277 18.3358 12.0002 18.3358C10.0728 18.3358 8.51025 16.7733 8.51025 14.8458C8.51025 12.9184 10.0728 11.3559 12.0002 11.3559C13.9277 11.3559 15.4902 12.9184 15.4902 14.8458ZM13.9058 14.8458C13.9058 15.8982 13.0526 16.7514 12.0002 16.7514C10.9478 16.7514 10.0946 15.8982 10.0946 14.8458C10.0946 13.7934 10.9478 12.9403 12.0002 12.9403C13.0526 12.9403 13.9058 13.7934 13.9058 14.8458Z"
-    fill="black"
-  />
+<svg width="24" height="24" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad_brand_onekey_svg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+  </defs>
+  <path d="M128 64C128 108.183 108.183 128 64 128C19.8172 128 0 108.183 0 64C0 19.8172 19.8172 0 64 0C108.183 0 128 19.8172 128 64Z" fill="url(#bgGrad_brand_onekey_svg)"/>
+  <rect x="36" y="27" width="56" height="18" rx="4" fill="#FFFFFF" fillOpacity="0.92"/>
+  <rect x="22" y="37" width="84" height="63" rx="13" fill="#0F172A"/>
+  <path d="M22 52 H106" stroke="#1E293B" stroke-width="2.2"/>
+  <path d="M83 55 H106 C108.8 55, 111 57.2, 111 60 V76 C111 78.8, 108.8 81, 106 81 H83 C80.2 81, 78 78.8, 78 76 V60 C78 57.2, 80.2 55, 83 55 Z" fill="#10B981"/>
+  <circle cx="94.5" cy="68" r="3.8" fill="#FFFFFF"/>
+  <path d="M54 57.5 C46.5 57.5, 40.5 62.2, 40.5 69 C 40.5 75.8, 46.5 80.5, 54 80.5 C 58.5 80.5, 61.8 78.2, 63.8 75.5" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M64.5 57.5 C57 57.5, 51 62.2, 51 69 C 51 75.8, 57 80.5, 64.5 80.5 C 69 80.5, 72.3 78.2, 74.3 75.5" stroke="#34D399" stroke-width="5" stroke-linecap="round" fill="none"/>
 </svg>

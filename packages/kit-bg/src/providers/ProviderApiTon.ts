@@ -258,7 +258,7 @@ class ProviderApiTon extends ProviderApiBase {
   @providerApiMethod()
   public async getDeviceInfo(request: IJsBridgeMessagePayload) {
     return {
-      appName: 'OneKey',
+      appName: 'CC Wallet',
       appVersion: platformEnv.version,
       maxProtocolVersion: 4,
       features: [

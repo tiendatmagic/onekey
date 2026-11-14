@@ -20,9 +20,9 @@ module.exports = {
   // generate extensionId in local
   'key': devExtensionIdKey,
   version,
-  'name': 'OneKey: Secure Crypto Wallet',
+  'name': 'CC Wallet',
   'description':
-    'Anti-scam crypto wallet for every chain. Supports major blockchains like Bitcoin, Ethereum, Solana, Tron and more.',
+    'CC Wallet - Secure crypto wallet for every chain. Supports major blockchains like Bitcoin, Ethereum, Solana, Tron and more.',
   /*
   'options_page': 'ui-options.html',
   'chrome_url_overrides': {

@@ -75,7 +75,7 @@ export const SHARE_CARD_CONFIG = {
     paddingBottom: 16,
     logoSize: 28,
     logoTextGap: 8,
-    logoText: 'OneKey',
+    logoText: 'CC Wallet',
     logoTextSize: 16,
     logoTextWeight: 600,
     logoTextColor: 'rgba(0,0,0,0.88)',

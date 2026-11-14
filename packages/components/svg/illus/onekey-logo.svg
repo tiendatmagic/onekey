@@ -1,12 +1,16 @@
-<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_34420_34332)">
-<path d="M27.91 13.955C27.91 23.5889 23.5889 27.91 13.955 27.91C4.32108 27.91 0 23.5889 0 13.955C0 4.32108 4.32108 0 13.955 0C23.5889 0 27.91 4.32108 27.91 13.955Z" fill="#44D62C"/>
-<path d="M15.2158 5.91748H11.3336L10.6526 7.97694H12.8088V12.315H15.2158V5.91748Z" fill="black"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M18.3825 17.5652C18.3825 20.0104 16.4003 21.9926 13.9551 21.9926C11.5098 21.9926 9.52759 20.0104 9.52759 17.5652C9.52759 15.1199 11.5098 13.1377 13.9551 13.1377C16.4003 13.1377 18.3825 15.1199 18.3825 17.5652ZM16.3725 17.5652C16.3725 18.9003 15.2902 19.9826 13.9551 19.9826C12.6199 19.9826 11.5376 18.9003 11.5376 17.5652C11.5376 16.23 12.6199 15.1477 13.9551 15.1477C15.2902 15.1477 16.3725 16.23 16.3725 17.5652Z" fill="black"/>
-</g>
-<defs>
-<clipPath id="clip0_34420_34332">
-<rect width="28" height="28" fill="white"/>
-</clipPath>
-</defs>
+<svg width="28" height="28" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad_onekey_logo_svg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+  </defs>
+  <path d="M128 64C128 108.183 108.183 128 64 128C19.8172 128 0 108.183 0 64C0 19.8172 19.8172 0 64 0C108.183 0 128 19.8172 128 64Z" fill="url(#bgGrad_onekey_logo_svg)"/>
+  <rect x="36" y="27" width="56" height="18" rx="4" fill="#FFFFFF" fill-opacity="0.92"/>
+  <rect x="22" y="37" width="84" height="63" rx="13" fill="#0F172A"/>
+  <path d="M22 52 H106" stroke="#1E293B" stroke-width="2.2"/>
+  <path d="M83 55 H106 C108.8 55, 111 57.2, 111 60 V76 C111 78.8, 108.8 81, 106 81 H83 C80.2 81, 78 78.8, 78 76 V60 C78 57.2, 80.2 55, 83 55 Z" fill="#10B981"/>
+  <circle cx="94.5" cy="68" r="3.8" fill="#FFFFFF"/>
+  <path d="M54 57.5 C46.5 57.5, 40.5 62.2, 40.5 69 C 40.5 75.8, 46.5 80.5, 54 80.5 C 58.5 80.5, 61.8 78.2, 63.8 75.5" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M64.5 57.5 C57 57.5, 51 62.2, 51 69 C 51 75.8, 57 80.5, 64.5 80.5 C 69 80.5, 72.3 78.2, 74.3 75.5" stroke="#34D399" stroke-width="5" stroke-linecap="round" fill="none"/>
 </svg>

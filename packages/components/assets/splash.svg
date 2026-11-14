@@ -1,5 +1,38 @@
-<svg width="296" height="296" viewBox="0 0 296 296" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M296 148C296 250.173 250.173 296 148 296C45.8273 296 0 250.173 0 148C0 45.8273 45.8273 0 148 0C250.173 0 296 45.8273 296 148Z" fill="#44D62C"/>
-<path d="M161.372 62.7568L120.2 62.7568L112.976 84.5985H135.845V130.606H161.372V62.7568Z" fill="black"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M194.957 186.287C194.957 212.22 173.934 233.242 148.001 233.242C122.068 233.242 101.045 212.22 101.045 186.287C101.045 160.354 122.068 139.331 148.001 139.331C173.934 139.331 194.957 160.354 194.957 186.287ZM173.639 186.286C173.639 200.446 162.161 211.925 148.001 211.925C133.841 211.925 122.363 200.446 122.363 186.286C122.363 172.127 133.841 160.648 148.001 160.648C162.161 160.648 173.639 172.127 173.639 186.286Z" fill="black"/>
+<svg width="296" height="296" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad_comp_splash" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <filter id="shadow_comp_splash" x="14" y="22" width="100" height="88" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <!-- Squircle Base (Apple/OneKey standard curve) -->
+  <path d="M128 64C128 108.183 108.183 128 64 128C19.8172 128 0 108.183 0 64C0 19.8172 19.8172 0 64 0C108.183 0 128 19.8172 128 64Z" fill="url(#bgGrad_comp_splash)"/>
+
+  <g filter="url(#shadow_comp_splash)">
+    <!-- Top Security Card peeking out -->
+    <rect x="36" y="27" width="56" height="18" rx="4" fill="#FFFFFF" fill-opacity="0.92"/>
+
+    <!-- Main Wallet Body -->
+    <rect x="22" y="37" width="84" height="63" rx="13" fill="#0F172A"/>
+
+    <!-- Wallet Fold Accent Line -->
+    <path d="M22 52 H106" stroke="#1E293B" stroke-width="2.2"/>
+
+    <!-- Wallet Clasp Tab (Right Side) -->
+    <path d="M83 55 H106 C108.8 55, 111 57.2, 111 60 V76 C111 78.8, 108.8 81, 106 81 H83 C80.2 81, 78 78.8, 78 76 V60 C78 57.2, 80.2 55, 83 55 Z" fill="#10B981"/>
+    <circle cx="94.5" cy="68" r="3.8" fill="#FFFFFF"/>
+
+    <!-- Interlocking CC Monogram (CC Wallet) -->
+    <!-- First 'C' (Left) -->
+    <path d="M54 57.5 C46.5 57.5, 40.5 62.2, 40.5 69 C 40.5 75.8, 46.5 80.5, 54 80.5 C 58.5 80.5, 61.8 78.2, 63.8 75.5" 
+          stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+    <!-- Second 'C' (Right - Interlocked) -->
+    <path d="M64.5 57.5 C57 57.5, 51 62.2, 51 69 C 51 75.8, 57 80.5, 64.5 80.5 C 69 80.5, 72.3 78.2, 74.3 75.5" 
+          stroke="#34D399" stroke-width="5" stroke-linecap="round" fill="none"/>
+  </g>
 </svg>

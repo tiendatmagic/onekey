@@ -4269,7 +4269,12 @@ export abstract class LocalDbBase extends LocalDbBaseContainer {
                 walletName: wallet.name,
               });
               wallet.name = label;
-            } else if (wallet.name && wallet.name.startsWith('OneKey')) {
+            } else if (
+              wallet.name &&
+              (wallet.name.startsWith('OneKey') ||
+                wallet.name.startsWith('CC Wallet') ||
+                wallet.name.startsWith('CC Wallet'))
+            ) {
               // No settable label (Ledger): strip any leftover OneKey name.
               const vendorLabel =
                 profile.presentation.defaultName || deviceVendor;

@@ -4,7 +4,7 @@ import type { IntlShape } from 'react-intl';
 
 // Names, not copy: they stay untranslated.
 export const REFERRAL_SHARE_NAMES = {
-  brand: 'OneKey',
+  brand: 'CC Wallet',
   x: 'X',
   telegram: 'Telegram',
 } as const;

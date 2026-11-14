@@ -1,17 +1,38 @@
-import Svg, { Path } from 'react-native-svg';
+import Svg, { Circle, Path, Rect } from 'react-native-svg';
 import type { SvgProps } from 'react-native-svg';
+
 const SvgOnekeyLogoMono = (props: SvgProps) => (
   <Svg fill="none" viewBox="0 0 280 280" accessibilityRole="image" {...props}>
+    {/* Squircle Base */}
     <Path
       fill="currentColor"
-      d="M140.001 151.965c13.394 0 24.253 10.858 24.253 24.253s-10.859 24.252-24.253 24.252-24.253-10.858-24.253-24.252c0-13.395 10.859-24.253 24.253-24.253"
+      d="M280 140C280 236.65 236.65 280 140 280S0 236.65 0 140 43.35 0 140 0s140 43.35 140 140"
+    />
+    {/* Inner Wallet Cutouts */}
+    <Rect x="79" y="59" width="122" height="39" rx="9" fill="#000" fillOpacity={0.2} />
+    <Rect x="48" y="81" width="184" height="138" rx="28" fill="#000" fillOpacity={0.6} />
+    <Path d="M48 114h184" stroke="#000" strokeWidth="5" />
+    <Path
+      d="M172 120h51c6 0 10 4 10 10v35c0 6-4 10-10 10h-51c-6 0-10-4-10-10v-35c0-6 4-10 10-10z"
+      fill="currentColor"
+    />
+    <Circle cx="207" cy="148" r="8" fill="#000" />
+    {/* Interlocking CC */}
+    <Path
+      d="M118 126c-16 0-29 10-29 25 0 15 13 25 29 25 10 0 17-5 21-11"
+      stroke="#fff"
+      strokeWidth="11"
+      strokeLinecap="round"
+      fill="none"
     />
     <Path
-      fill="currentColor"
-      fillRule="evenodd"
-      d="M140 0c96.65 0 140 43.35 140 140s-43.35 140-140 140S0 236.65 0 140 43.35 0 140 0m.001 131.8c-24.531 0-44.417 19.887-44.417 44.418s19.886 44.417 44.417 44.417 44.418-19.886 44.418-44.417-19.887-44.418-44.418-44.418m-26.299-72.435-6.833 20.661h21.633v43.52h24.147v-64.18z"
-      clipRule="evenodd"
+      d="M141 126c-16 0-29 10-29 25 0 15 13 25 29 25 10 0 17-5 21-11"
+      stroke="#fff"
+      strokeWidth="11"
+      strokeLinecap="round"
+      fill="none"
     />
   </Svg>
 );
+
 export default SvgOnekeyLogoMono;

@@ -12,7 +12,7 @@ const baseElectronBuilderConfig = {
     'version': process.env.VERSION,
   },
   'appId': 'so.onekey.wallet.desktop',
-  'productName': 'OneKey',
+  'productName': 'CC Wallet',
   'copyright': 'Copyright © ${author}',
   'asar': true,
   'electronLanguages': getElectronLanguages(),

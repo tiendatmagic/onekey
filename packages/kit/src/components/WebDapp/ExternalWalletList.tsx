@@ -246,7 +246,7 @@ function OneKeyWalletItem({ networkType }: { networkType?: string }) {
             <Icon
               name="OnekeyBrand"
               size="$10"
-              bg="#44D62C"
+              bg="#10B981"
               borderRadius="$2"
             />
           </Stack>

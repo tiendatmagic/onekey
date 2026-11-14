@@ -1,6 +1,6 @@
 <div align="center">
 
-# OneKey: Secure Crypto Wallet
+# CC Wallet: Secure Crypto Wallet
 
 Anti-scam, open-source crypto wallet for every chain.
 Supports Bitcoin, Ethereum, Solana, Tron, BNB Smart Chain, and more.

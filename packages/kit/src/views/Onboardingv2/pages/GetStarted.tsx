@@ -396,11 +396,6 @@ function GetStarted() {
     navigation.push(EOnboardingPagesV2.CreateOrImportWallet);
   };
 
-  const handleConnectHardwareWallet = () => {
-    navigation.push(EOnboardingPagesV2.PickYourDevice);
-    defaultLogger.account.wallet.onboard({ onboardMethod: 'connectHWWallet' });
-  };
-
   const heroActionWords = useMemo(
     () =>
       HERO_ACTIONS.map(({ id, defaultMessage }) =>
@@ -436,17 +431,6 @@ function GetStarted() {
       onPress: handleMoreOptions,
       mobileButtonProps: { variant: 'secondary' },
       testID: OnboardingTestIDs.importWalletButton,
-    },
-    {
-      labelId: ETranslations.global_connect_hardware_wallet,
-      icon: 'EnergyCircleSolid',
-      onPress: handleConnectHardwareWallet,
-      mobileButtonProps: {
-        bg: '$transparent',
-        borderWidth: 1,
-        borderColor: '$borderSubdued',
-      },
-      testID: OnboardingTestIDs.connectHardwareButton,
     },
   ] as const;
 

@@ -42,7 +42,7 @@ function OneKeyHardwareWalletLogo() {
         bottom="-2px"
         name="OnekeyBrand"
         size="$4.5"
-        bg="#44D62C"
+        bg="#10B981"
         borderRadius="$1"
       />
     </Stack>
@@ -181,7 +181,7 @@ function OneKeyWalletConnectionOptions({
             <Icon
               name="OnekeyBrand"
               size="$10"
-              bg="#44D62C"
+              bg="#10B981"
               borderRadius="$2"
             />
             <Image

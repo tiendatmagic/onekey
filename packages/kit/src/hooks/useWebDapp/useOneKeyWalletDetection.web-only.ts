@@ -48,7 +48,7 @@ export function useOneKeyWalletDetection() {
         return {
           evmInjected: {
             global: 'ethereum',
-            name: 'OneKey Wallet',
+            name: 'CC Wallet',
           },
         };
       }
@@ -72,7 +72,7 @@ export function useOneKeyWalletDetection() {
 
     if (isOneKeyExtWalletInstalled) {
       return {
-        name: 'OneKey Wallet',
+        name: 'CC Wallet',
         icon: '',
         rdns: 'injected',
         uuid: 'onekey-injected',

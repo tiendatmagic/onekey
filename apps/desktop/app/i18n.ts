@@ -12,7 +12,7 @@ import { LOCALES } from '@onekeyhq/shared/src/locale/localeJsonMap';
 
 import * as store from './libs/store';
 
-let globalLocale = 'en-US' as ILocaleSymbol;
+let globalLocale = 'vi' as ILocaleSymbol;
 let globalMessages: Record<ETranslations, string> = {} as unknown as Record<
   ETranslations,
   string
@@ -42,7 +42,7 @@ export const getLocale = () => {
       return locale;
     }
   }
-  return 'en-US' as ILocaleSymbol;
+  return 'vi' as ILocaleSymbol;
 };
 
 export const getLocaleMessages = async (locale: ILocaleSymbol) => {

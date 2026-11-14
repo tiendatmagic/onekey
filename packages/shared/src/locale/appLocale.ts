@@ -6,12 +6,12 @@ import type { ResolvedIntlConfig } from '@formatjs/intl';
 import type { IntlShape } from 'react-intl';
 
 export const fallbackAppLocaleIntl = createIntl({
-  locale: 'en-US',
+  locale: 'vi',
 });
 
 class AppLocale {
   constructor() {
-    this.setLocale('en-US', {} as any);
+    this.setLocale('vi', {} as any);
   }
 
   cache = createIntlCache();

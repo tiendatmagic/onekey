@@ -89,7 +89,7 @@ export async function showUpdateHardwareWalletLegacyXfpDialog({
           id: ETranslations.global_hardware_legacy_data_update_dialog_description,
         },
         {
-          walletName: 'OneKey',
+          walletName: 'CC Wallet',
         },
       ),
       dismissOnOverlayPress: false,

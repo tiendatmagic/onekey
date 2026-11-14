@@ -296,12 +296,12 @@ export const useRouterConfig = () => {
           enabled: platformEnv.isWeb,
           formatter: (_options, _route) => {
             if (!platformEnv.isWebDappMode) {
-              return 'OneKey';
+              return 'CC Wallet';
             }
 
             const state = rootNavigationRef.current?.getRootState();
             if (!state) {
-              return 'OneKey';
+              return 'CC Wallet';
             }
 
             const rootState = state?.routes.find(
@@ -309,7 +309,7 @@ export const useRouterConfig = () => {
             )?.state;
 
             if (!rootState) {
-              return 'OneKey';
+              return 'CC Wallet';
             }
 
             const currentTabName = rootState?.routeNames
@@ -321,7 +321,7 @@ export const useRouterConfig = () => {
               ? intl.formatMessage({ id: translationKey })
               : '';
 
-            return tabTitle ? `OneKey - ${tabTitle}` : 'OneKey';
+            return tabTitle ? `CC Wallet - ${tabTitle}` : 'CC Wallet';
           },
         },
         onStateChange: (state) => {

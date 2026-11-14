@@ -79,7 +79,7 @@ import {
 import type { IKeylessSameEmailAccountStatus } from './sameEmailAccountStatusUtils';
 
 export function useKeylessWalletFeatureIsEnabled(): boolean {
-  return !platformEnv.isNativeIOSMacCatalyst;
+  return false;
 }
 
 export function useKeylessWalletExistsLocal(): boolean {

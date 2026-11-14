@@ -3,7 +3,6 @@ import { useCallback, useState } from 'react';
 import { useRoute } from '@react-navigation/core';
 import { useIntl } from 'react-intl';
 
-import type { IKeyOfIcons } from '@onekeyhq/components';
 import {
   Icon,
   Input,
@@ -13,7 +12,6 @@ import {
   YStack,
   useMedia,
 } from '@onekeyhq/components';
-import { EOAuthSocialLoginProvider } from '@onekeyhq/shared/src/consts/authConsts';
 import { ETranslations } from '@onekeyhq/shared/src/locale';
 import { defaultLogger } from '@onekeyhq/shared/src/logger/logger';
 import type { IOnboardingParamListV2 } from '@onekeyhq/shared/src/routes';
@@ -22,45 +20,15 @@ import { EAccountSelectorSceneName } from '@onekeyhq/shared/types';
 
 import backgroundApiProxy from '../../../background/instance/backgroundApiProxy';
 import { AccountSelectorProviderMirror } from '../../../components/AccountSelector';
-import { useKeylessWalletFeatureIsEnabled } from '../../../components/KeylessWallet/useKeylessWallet';
 import useAppNavigation from '../../../hooks/useAppNavigation';
 import {
   OnboardingHeading,
-  OnboardingIconBadge,
   OnboardingIconButton,
-  OnboardingOrDivider,
   OnboardingPage,
-  OnboardingSidebar,
 } from '../components/Layout';
-import { useAutoStartKeylessProvider } from '../hooks/useAutoStartKeylessProvider';
-import { useKeylessLocalExistenceLogin } from '../hooks/useKeylessLocalExistenceLogin';
 import { OnboardingTestIDs } from '../testIDs';
 
-import { KeylessOnboardingDebugPanel } from './KeylessOnboardingDebugPanel';
-
 import type { RouteProp } from '@react-navigation/core';
-
-const bullets: ReadonlyArray<{
-  icon: IKeyOfIcons;
-  titleId: ETranslations;
-  descriptionId: ETranslations;
-}> = [
-  {
-    icon: 'LightningOutline',
-    titleId: ETranslations.onboarding_benefit_setup_title,
-    descriptionId: ETranslations.onboarding_benefit_setup_description,
-  },
-  {
-    icon: 'CubeOutline',
-    titleId: ETranslations.onboarding_benefit_security_title,
-    descriptionId: ETranslations.onboarding_benefit_security_description,
-  },
-  {
-    icon: 'RenewOutline',
-    titleId: ETranslations.onboarding_benefit_recovery_title,
-    descriptionId: ETranslations.onboarding_benefit_recovery_description,
-  },
-];
 
 function CreateNewWallet() {
   const intl = useIntl();
@@ -70,29 +38,13 @@ function CreateNewWallet() {
       RouteProp<IOnboardingParamListV2, EOnboardingPagesV2.CreateNewWallet>
     >();
 
-  const autoLoginKeylessProvider = route?.params?.autoLoginKeylessProvider;
-  const autoConnectNonce = route?.params?.autoConnectNonce;
-  const isWebKeylessSidePanelMode = Boolean(
-    route?.params?.fromExt && autoLoginKeylessProvider,
-  );
-  const isKeylessWalletEnabled = useKeylessWalletFeatureIsEnabled();
-  const [isResetMode, setIsResetMode] = useState(false);
   const [showPassphrase, setShowPassphrase] = useState(false);
   const [passphrase, setPassphrase] = useState('');
   const [confirmPassphrase, setConfirmPassphrase] = useState('');
   const [isPassphraseSecure, setIsPassphraseSecure] = useState(true);
   const [isConfirmSecure, setIsConfirmSecure] = useState(true);
 
-  const {
-    enableKeylessWalletLoading,
-    loadingProvider,
-    handleGoogleLogin,
-    handleAppleLogin,
-  } = useKeylessLocalExistenceLogin({
-    autoLoginKeylessProvider,
-    isResetMode,
-    onResetModeChange: setIsResetMode,
-  });
+  const { gtMd } = useMedia();
 
   const handleCreateSeedPhraseWallet = useCallback(async () => {
     if (showPassphrase) {
@@ -142,75 +94,25 @@ function CreateNewWallet() {
     });
   }, [confirmPassphrase, navigation, passphrase, showPassphrase]);
 
-  useAutoStartKeylessProvider({
-    autoStartProvider: autoLoginKeylessProvider,
-    autoStartTriggerKey: autoConnectNonce,
-    enabled:
-      (isKeylessWalletEnabled || isWebKeylessSidePanelMode) &&
-      !enableKeylessWalletLoading,
-    onGoogleLogin: handleGoogleLogin,
-    onAppleLogin: handleAppleLogin,
-  });
-
-  const isGoogleLoading = loadingProvider === EOAuthSocialLoginProvider.Google;
-  const isAppleLoading = loadingProvider === EOAuthSocialLoginProvider.Apple;
-  // Disable both provider buttons whenever any keyless login/reset is in
-  // flight. enableKeylessWalletLoading covers the create/restore path; reset
-  // mode only sets loadingProvider, so include it here too.
-  const isKeylessLoginInProgress =
-    enableKeylessWalletLoading || loadingProvider !== null;
-
-  const { md } = useMedia();
-
-  const actions = (
-    <YStack
-      gap="$3"
-      $md={{
-        pt: '$3',
-        pb: '$5',
-      }}
-      $gtMd={{
-        flex: 1,
-        pt: 88,
-        gap: '$5',
-      }}
-    >
-      {isKeylessWalletEnabled ? (
-        <>
-          <OnboardingIconButton
-            testID={OnboardingTestIDs.googleSignInButton}
-            variant="primary"
-            icon="GoogleIllus"
-            isLoading={isGoogleLoading}
-            disabled={isKeylessLoginInProgress}
-            onPress={handleGoogleLogin}
-          >
-            {intl.formatMessage(
-              { id: ETranslations.continue_with_social_platform },
-              { platform: 'Google' },
-            )}
-          </OnboardingIconButton>
-          <OnboardingIconButton
-            testID={OnboardingTestIDs.appleSignInButton}
-            variant="primary"
-            icon="AppleBrand"
-            isLoading={isAppleLoading}
-            disabled={isKeylessLoginInProgress}
-            onPress={handleAppleLogin}
-          >
-            {intl.formatMessage(
-              { id: ETranslations.continue_with_social_platform },
-              { platform: 'Apple' },
-            )}
-          </OnboardingIconButton>
-        </>
-      ) : null}
-      {isWebKeylessSidePanelMode ? null : (
-        <>
-          {!md && isKeylessWalletEnabled ? <OnboardingOrDivider /> : null}
+  return (
+    <OnboardingPage narrow scrollable>
+      <YStack gap="$8" $gtMd={{ gap: '$12' }}>
+        <OnboardingHeading>
+          {intl.formatMessage({
+            id: ETranslations.onboarding_create_new_wallet,
+          })}
+        </OnboardingHeading>
+        <YStack
+          gap="$3"
+          $gtMd={{
+            gap: '$5',
+          }}
+        >
           <OnboardingIconButton
             testID={OnboardingTestIDs.createNewWalletSeedPhraseBtn}
+            variant="primary"
             icon="SecretPhraseOutline"
+            iconSize={gtMd ? '$5' : '$6'}
             onPress={handleCreateSeedPhraseWallet}
           >
             {intl.formatMessage({
@@ -226,7 +128,11 @@ function CreateNewWallet() {
               userSelect="none"
             >
               <Icon
-                name={showPassphrase ? 'ChevronDownSmallOutline' : 'ChevronRightSmallOutline'}
+                name={
+                  showPassphrase
+                    ? 'ChevronDownSmallOutline'
+                    : 'ChevronRightSmallOutline'
+                }
                 size="$4"
                 color="$iconSubdued"
               />
@@ -270,68 +176,7 @@ function CreateNewWallet() {
               </YStack>
             ) : null}
           </YStack>
-        </>
-      )}
-      {isWebKeylessSidePanelMode || !isKeylessWalletEnabled ? null : (
-        <KeylessOnboardingDebugPanel
-          isResetMode={isResetMode}
-          onResetModeChange={setIsResetMode}
-        />
-      )}
-    </YStack>
-  );
-
-  // A phone-class window pins the actions under a scrolling page: a long
-  // locale on a short screen used to push the last button off a fixed page.
-  return (
-    <OnboardingPage scrollable={md} footer={md ? actions : undefined}>
-      <OnboardingHeading>
-        {intl.formatMessage({
-          id: ETranslations.onboarding_create_new_wallet,
-        })}
-      </OnboardingHeading>
-      <YStack
-        $md={{
-          flex: 1,
-        }}
-        $gtMd={{
-          flexDirection: 'row-reverse',
-          mt: -40,
-        }}
-      >
-        {isKeylessWalletEnabled ? (
-          <OnboardingSidebar $md={{ pt: '$5', pb: '$5' }}>
-            {md ? null : <OnboardingIconBadge icon="WalletCryptoSolid" />}
-            <YStack gap="$6">
-              <SizableText size="$headingMd">
-                {intl.formatMessage({
-                  id: ETranslations.onboarding_keyless_tagline,
-                })}
-              </SizableText>
-              {bullets.map((item) => (
-                <XStack key={item.titleId} gap="$5" alignItems="flex-start">
-                  {md ? (
-                    <Icon
-                      name={item.icon}
-                      color="$iconSubdued"
-                      size="$6"
-                      flexShrink={0}
-                    />
-                  ) : null}
-                  <YStack flex={1} gap="$1">
-                    <SizableText size="$bodyLgMedium">
-                      {intl.formatMessage({ id: item.titleId })}
-                    </SizableText>
-                    <SizableText size="$bodyLg" color="$textSubdued">
-                      {intl.formatMessage({ id: item.descriptionId })}
-                    </SizableText>
-                  </YStack>
-                </XStack>
-              ))}
-            </YStack>
-          </OnboardingSidebar>
-        ) : null}
-        {md ? null : actions}
+        </YStack>
       </YStack>
     </OnboardingPage>
   );

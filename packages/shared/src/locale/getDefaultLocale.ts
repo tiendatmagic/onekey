@@ -29,7 +29,7 @@ const getDefaultLocaleFunc = () => {
       return locale;
     }
   }
-  return 'en-US' as ILocaleSymbol;
+  return 'vi' as ILocaleSymbol;
 };
 
 export const getDefaultLocale = memoizee(getDefaultLocaleFunc);
